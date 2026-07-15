@@ -88,5 +88,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const temaSalvo = localStorage.getItem('tema');
+    if (temaSalvo === 'light') {
+        document.body.classList.add('light-mode');
+        if (themeToggleBtn) themeToggleBtn.textContent = '☀️';
+    } else {
+        if (themeToggleBtn) themeToggleBtn.textContent = '🌙';
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('tema', isLight ? 'light' : 'dark');
+            themeToggleBtn.textContent = isLight ? '☀️' : '🌙';
+        });
+    }
+
     console.log("Conversor de Tempo inicializado");
 });
