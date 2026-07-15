@@ -13,11 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
         'século': 3153600000
     };
 
+    function validarEntrada(valor) {
+        if (valor === "" || valor === null || isNaN(valor) || Number(valor) <= 0) {
+            console.error("Valor inválido: deve ser um número positivo.");
+            return false;
+        }
+        return true;
+    }
+
     function converter(valor, unidadeOrigem, unidadeDestino) {
+        if (!validarEntrada(valor)) return null;
+        const numValor = Number(valor);
         const fatorOrigem = FATORES_SEGUNDOS[unidadeOrigem];
         const fatorDestino = FATORES_SEGUNDOS[unidadeDestino];
         if (!fatorOrigem || !fatorDestino) return null;
-        return (valor * fatorOrigem) / fatorDestino;
+        return (numValor * fatorOrigem) / fatorDestino;
     }
 
     console.log("Conversor de Tempo inicializado");
