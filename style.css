@@ -63,6 +63,18 @@ main {
     flex-direction: column;
     gap: 1.25rem;
     transition: var(--transition);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 select, input[type="number"] {
@@ -78,9 +90,14 @@ select, input[type="number"] {
     transition: var(--transition);
 }
 
+select:hover, input[type="number"]:hover {
+    border-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
 select:focus, input[type="number"]:focus {
     border-color: #8b5cf6;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
 }
 
 select option {
@@ -107,8 +124,8 @@ select option {
 }
 
 #btn-swap:hover {
-    transform: rotate(180deg) scale(1.08);
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
 }
 
 #resultado {
@@ -125,6 +142,18 @@ select option {
     justify-content: center;
     color: #fff;
     transition: var(--transition);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 footer {
