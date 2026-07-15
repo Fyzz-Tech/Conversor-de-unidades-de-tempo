@@ -11,8 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ano: 31536000
     };
 
-    function converter() {
-        // Será implementada nas próximas etapas
+    function converter(valor, unidadeOrigem, unidadeDestino) {
+        const fatorOrigem = FATORES_SEGUNDOS[unidadeOrigem];
+        const fatorDestino = FATORES_SEGUNDOS[unidadeDestino];
+        if (!fatorOrigem || !fatorDestino) return null;
+        return (valor * fatorOrigem) / fatorDestino;
     }
 
     console.log("Conversor de Tempo inicializado");
