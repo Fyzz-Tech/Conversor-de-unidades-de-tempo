@@ -74,5 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
         destinoElement.addEventListener('change', atualizarResultado);
     }
 
+    const btnSwap = document.getElementById('btn-swap');
+    if (btnSwap) {
+        btnSwap.addEventListener('click', () => {
+            const selectOrigem = document.getElementById('unidade-origem');
+            const selectDestino = document.getElementById('unidade-destino');
+            if (selectOrigem && selectDestino) {
+                const temp = selectOrigem.value;
+                selectOrigem.value = selectDestino.value;
+                selectDestino.value = temp;
+                atualizarResultado();
+            }
+        });
+    }
+
     console.log("Conversor de Tempo inicializado");
 });
