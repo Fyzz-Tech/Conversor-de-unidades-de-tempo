@@ -21,13 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    function formatarResultado(valor) {
+        if (valor === 0) return "0";
+        if (valor > 1000000 || (valor < 0.0001 && valor > 0)) {
+            return Number(valor).toExponential(4);
+        }
+        return Number(valor.toFixed(6)).toString();
+    }
+
     function converter(valor, unidadeOrigem, unidadeDestino) {
         if (!validarEntrada(valor)) return null;
         const numValor = Number(valor);
         const fatorOrigem = FATORES_SEGUNDOS[unidadeOrigem];
         const fatorDestino = FATORES_SEGUNDOS[unidadeDestino];
         if (!fatorOrigem || !fatorDestino) return null;
-        return (numValor * fatorOrigem) / fatorDestino;
+        const calc = (numValor * fatorOrigem) / fatorDestino;
+        return formatarResultado(calc);
     }
 
     console.log("Conversor de Tempo inicializado");
