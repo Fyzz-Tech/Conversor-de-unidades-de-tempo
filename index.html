@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades de Tempo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Conversor de Unidades de Tempo</h1>
+    </header>
+    <main>
+        <div id="app">
+            <select id="unidade-origem">
+                <option value="segundo">Segundo</option>
+                <option value="minuto">Minuto</option>
+                <option value="hora">Hora</option>
+                <option value="dia">Dia</option>
+                <option value="semana">Semana</option>
+                <option value="mês">Mês</option>
+                <option value="ano">Ano</option>
+                <option value="década">Década</option>
+                <option value="século">Século</option>
+            </select>
+            <button id="btn-swap" type="button" aria-label="Inverter unidades">⇄</button>
+            <input type="number" id="valor-input" placeholder="Digite o valor">
+            <select id="unidade-destino">
+                <option value="segundo">Segundo</option>
+                <option value="minuto">Minuto</option>
+                <option value="hora">Hora</option>
+                <option value="dia">Dia</option>
+                <option value="semana">Semana</option>
+                <option value="mês">Mês</option>
+                <option value="ano">Ano</option>
+                <option value="década">Década</option>
+                <option value="século">Século</option>
+            </select>
+            <div id="resultado"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Fyzz-Tech</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
