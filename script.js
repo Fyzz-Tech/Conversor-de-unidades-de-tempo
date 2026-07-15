@@ -39,5 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return formatarResultado(calc);
     }
 
+    function atualizarResultado() {
+        const inputValor = document.getElementById('valor-input');
+        const selectOrigem = document.getElementById('unidade-origem');
+        const selectDestino = document.getElementById('unidade-destino');
+        const divResultado = document.getElementById('resultado');
+
+        if (!inputValor || !selectOrigem || !selectDestino || !divResultado) return;
+
+        const valor = inputValor.value;
+        if (valor === "" || valor === null) {
+            divResultado.textContent = "";
+            return;
+        }
+
+        const res = converter(valor, selectOrigem.value, selectDestino.value);
+        if (res !== null) {
+            divResultado.textContent = `${res} ${selectDestino.value}(s)`;
+        } else {
+            divResultado.textContent = "";
+        }
+    }
+
+    const inputElement = document.getElementById('valor-input');
+    if (inputElement) {
+        inputElement.addEventListener('input', atualizarResultado);
+    }
+    const origemElement = document.getElementById('unidade-origem');
+    if (origemElement) {
+        origemElement.addEventListener('change', atualizarResultado);
+    }
+    const destinoElement = document.getElementById('unidade-destino');
+    if (destinoElement) {
+        destinoElement.addEventListener('change', atualizarResultado);
+    }
+
     console.log("Conversor de Tempo inicializado");
 });
